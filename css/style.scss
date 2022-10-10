@@ -1,0 +1,384 @@
+@charset "utf-8";
+
+html {
+  font-size: 100%;
+}
+
+body {
+  color: #333;
+  font-size: 0.875rem;  /* 14px */
+  min-height: 100vh;
+  position: relative;
+}
+
+a {
+  color: #333;
+  text-decoration: none;  
+  transition: all 0.5s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  width: 100%;
+  // max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.content {  /* mainの上下間隔 */
+  padding-top: 120px;
+  padding-bottom: 160px;
+}
+
+.site-title a {  /* メインタイトルロゴ */
+  width: 180px;
+  line-height: 1;
+  display: block;
+}
+
+.page-title {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+/* -----------------------------------------
+ヘッダー
+----------------------------------------- */
+#header {  /* どのページにもあり、固定ヘッダー */
+  width: 100%;
+  height: 80px; /* 固定ヘッダーの高さ */
+  // padding: 0 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;  /* 上部へスクロール時に商品画像が固定ヘッダーへ被らないよう処理 */
+  background-color: #fff;
+
+  #hamburger {  /* ハンバーガーメニューを開く前の2本線の枠と本体 */
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 20;
+    transition: all .5s;
+  }
+
+  #hamburger span {  /* ハンバーガーメニューの2本線自体のそれぞれの高さと幅と色 */
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.5s;
+  }
+
+  #hamburger.open span {
+    background-color: #fff;
+  }
+
+  #hamburger span:nth-child(1) {  /* ハンバーガーメニューの2本線の位置 */
+    top: 10px;
+  }
+  #hamburger span:nth-child(2) {
+    bottom: 10px;
+  }
+
+  #hamburger.open span:nth-child(1) {  /* ハンバーガーメニューを開いた時の2本線の位置 */
+    transform: translateY(4px) rotate(-45deg);
+  }
+  #hamburger.open span:nth-child(2) {
+    transform: translateY(-4px) rotate(45deg);
+  }
+
+  #navi {  /* ハンバーガメニューが3本線の時のナビは非表示 */
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    color: #fff;
+    padding: 36px 50px;
+    transition: all 0.5s;
+    z-index: 20;
+    opacity: 0;
+  }
+
+  #navi a {
+    color: #fff;
+  }
+
+  #navi.open {  /* ハンバーガメニューが❌の時のナビ、左からスーッと表示 */
+    left: 0;
+    opacity: 1;
+  }
+
+  #navi li { 
+    margin-bottom: 14px;
+  }
+
+  #mask { /* ハンバーガーメニューが3本線の時のマスクは非表示 */
+    display: none;
+    transition: all .5s;
+  }
+
+  #mask.open{  /* ハンバーガーメニューを開いた時はマスク表示 */
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.8;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+}
+
+/* -----------------------------------------
+TOP、PRODUCTS
+----------------------------------------- */
+#top {
+  margin-top: 80px;  /* 固定ヘッダーの高さ分topを下げる */
+  margin-bottom: 160px;
+}
+
+.page-title {
+  margin-bottom: 30px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 23%);
+  gap: 39px 32px;  /* グリッド間の行間と列間 */
+
+    p {  /* 商品名と価格のスタイル */
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    img {  /* 各画像と商品名の間の幅（隙間） */
+      margin-bottom: 10px;
+      vertical-align: top;
+    }
+  }
+
+.link-text {  /* View More のスタイル */
+  display: block;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 42px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 42px;
+
+  li {
+    padding: 0 20px;
+  }
+}
+
+/* -----------------------------------------
+ITEM
+----------------------------------------- */
+#item {
+  max-width: 800px;
+  display: flex;
+  margin-bottom: 60px;
+  justify-content: space-between;
+
+  .item-text {
+    width: 42%;
+    line-height: 1.5;
+
+    p {
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+
+    dl {
+      display: flex;
+      flex-wrap: wrap;
+
+      dt {
+        width: 30%;
+        font-weight: normal;
+      }
+
+      dd {
+        width: 70%;
+      }
+    }
+  }
+  
+  .item-img {
+    width: 50%;
+  }
+
+}
+
+/* -----------------------------------------
+About
+----------------------------------------- */
+#about {
+  max-width: 600px;
+
+  p {
+    line-height: 1.9;
+    margin-bottom: 30px;
+  }
+}
+
+/* -----------------------------------------
+COMPANY
+----------------------------------------- */
+#company {
+  max-width: 600px;
+  
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    dt {
+      width: 30%;
+      border-bottom: solid 1px #dcdbdb;
+      padding: 20px 10px;
+      
+      &:last-of-type {
+        border-bottom: none;
+      }
+      
+    }
+    
+    dd {
+      width: 70%;
+      border-bottom: solid 1px #dcdbdb;
+      padding: 20px 10px;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+    }
+  }
+
+  .map {
+    filter: grayscale(1);
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+  }
+}
+
+
+/* -----------------------------------------
+フッター
+----------------------------------------- */
+#footer {
+  display: flex;
+  justify-content: space-between;
+
+  .footer-link {  /* インスタ、ツイッター、フェイスブックのリンク */
+    display: flex;
+    margin-bottom: 20px;
+  
+    li {
+      font-size: 0.75rem;
+      color: #333;
+      margin-right: 30px;
+    }
+  }
+
+  p {  /* コピーライト */
+    font-size: 0.625rem;
+  }
+}
+
+/* -----------------------------------------
+SP
+----------------------------------------- */
+@media screen and (max-width: 900px) {
+
+  /* -----------------------------------------
+  TOP、PRODUCTS
+  ----------------------------------------- */
+  .product-list {
+    grid-template-columns: repeat(2, 46%);
+    // gap: 39px 32px;  /* グリッド間の行間と列間 */
+  }
+
+
+  /* -----------------------------------------
+  ITEM
+  ----------------------------------------- */
+  #item {
+    flex-direction: column;
+
+    .item-text {
+      width: 100%;
+    }
+
+    .item-img {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  /* -----------------------------------------
+  COMPANY
+  ----------------------------------------- */
+  #company {
+    dl {
+      flex-direction: column;
+
+      dt {
+        border-bottom: none;
+        padding-bottom: 5px;
+        width: 100%;
+      }
+
+      dd {
+        width: 100%;
+        padding-top: 5px;
+      }
+    }
+
+  }
+
+
+  /* -----------------------------------------
+  フッター
+  ----------------------------------------- */
+  #footer {
+    display: block;
+
+      .footer-link {
+        margin-bottom: 10px;
+      }
+
+      p { 
+        margin: 0 0 20px auto;
+    }
+  }
+
+}
