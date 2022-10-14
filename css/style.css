@@ -46,7 +46,7 @@ li {
 }
 
 .page-title {
-  font-size: 0.875rem;
+  font-size: 0.875rem; /* 14px */
   font-weight: normal;
   margin-bottom: 30px;
 }
@@ -162,7 +162,7 @@ TOP、PRODUCTS
 
 .link-text { /* View More のスタイル */
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.875rem; /* 14px */
   text-align: center;
   margin-top: 42px;
 }

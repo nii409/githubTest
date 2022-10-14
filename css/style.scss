@@ -1,18 +1,22 @@
-@charset "utf-8";
+// @forward './css/variable';
+// @use './css/variable';
+
+$base-color: #333;
+$base-font: $base-font;  /* 14px */
 
 html {
   font-size: 100%;
 }
 
 body {
-  color: #333;
-  font-size: 0.875rem;  /* 14px */
+  color: $base-color;
+  font-size: $base-font;  /* 14px */
   min-height: 100vh;
   position: relative;
 }
 
 a {
-  color: #333;
+  color: $base-color;
   text-decoration: none;  
   transition: all 0.5s;
 }
@@ -48,7 +52,7 @@ li {
 }
 
 .page-title {
-  font-size: 0.875rem;
+  font-size: $base-font;  /* 14px */
   font-weight: normal;
   margin-bottom: 30px;
 }
@@ -82,7 +86,7 @@ li {
     position: absolute;
     width: 30px;
     height: 2px;
-    background-color: #333;
+    background-color: $base-color;
     transition: all 0.5s;
   }
 
@@ -179,7 +183,7 @@ TOP、PRODUCTS
 
 .link-text {  /* View More のスタイル */
   display: block;
-  font-size: 0.875rem;
+  font-size: $base-font;  /* 14px */
   text-align: center;
   margin-top: 42px;
 }
@@ -304,7 +308,7 @@ COMPANY
   
     li {
       font-size: 0.75rem;
-      color: #333;
+      color: $base-color;
       margin-right: 30px;
     }
   }
