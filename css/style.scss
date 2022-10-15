@@ -169,22 +169,18 @@ TOP、PRODUCTS
   grid-template-columns: repeat(4, 23%);
   gap: 39px 25px;  /* グリッド間の行間と列間 */
 
-  .img-wrap {
-
     p {  /* 商品名と価格のスタイル */
       font-size: 0.75rem;
       line-height: 1.5;
     }
   
-    img {  /* 各画像と商品名の間の幅（隙間） */
+    img {  /* 各画像の設定 */
       margin-bottom: 10px;
       vertical-align: top;
       width: 294px;
       height: 294px;
       object-fit: cover;
     }
-  }
-
 
   }
 
