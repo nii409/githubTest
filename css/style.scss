@@ -1,8 +1,8 @@
 // @forward './css/variable';
-// @use './css/variable';
+@use "variables" as v;
 
 $base-color: #333;
-$base-font: $base-font;  /* 14px */
+$base-font: 0.875rem;  /* 14px */
 
 html {
   font-size: 100%;
@@ -22,7 +22,7 @@ a {
 }
 
 a:hover {
-  opacity: 0.7;
+  opacity: v.$op;
 }
 
 img {
