@@ -17,7 +17,7 @@ body {
 
 a {
   color: $base-color;
-  text-decoration: none;  
+  text-decoration: none;
   transition: all 0.5s;
 }
 
@@ -51,12 +51,6 @@ li {
   display: block;
 }
 
-.page-title {
-  font-size: $base-font;  /* 14px */
-  font-weight: normal;
-  margin-bottom: 30px;
-}
-
 /* -----------------------------------------
 ヘッダー
 ----------------------------------------- */
@@ -68,6 +62,7 @@ li {
   align-items: center;
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
   z-index: 10;  /* 上部へスクロール時に商品画像が固定ヘッダーへ被らないよう処理 */
   background-color: #fff;
@@ -128,7 +123,7 @@ li {
     opacity: 1;
   }
 
-  #navi li { 
+  #navi li {
     margin-bottom: 14px;
   }
 
@@ -160,25 +155,29 @@ TOP、PRODUCTS
   margin-bottom: 160px;
 }
 
-.page-title {
+.products-title {
+  font-size: $base-font;  /* 14px */
+  font-weight: normal;
   margin-bottom: 30px;
 }
 
 .product-list {
   display: grid;
-  grid-template-columns: repeat(4, 23%);
-  gap: 39px 25px;  /* グリッド間の行間と列間 */
+  // grid-template-columns: repeat(4, 23%);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 39px 34px;  /* グリッド間の行間と列間 */
 
     p {  /* 商品名と価格のスタイル */
       font-size: 0.75rem;
       line-height: 1.5;
     }
-  
+
     img {  /* 各画像の設定 */
       margin-bottom: 10px;
       vertical-align: top;
-      width: 294px;
-      height: 294px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      -o-object-fit: cover;
       object-fit: cover;
     }
 
@@ -233,9 +232,14 @@ ITEM
       }
     }
   }
-  
+
   .item-img {
     width: 50%;
+
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
   }
 
 }
@@ -257,7 +261,7 @@ COMPANY
 ----------------------------------------- */
 #company {
   max-width: 600px;
-  
+
   dl {
     display: flex;
     flex-wrap: wrap;
@@ -267,13 +271,13 @@ COMPANY
       width: 30%;
       border-bottom: solid 1px #dcdbdb;
       padding: 20px 10px;
-      
+
       &:last-of-type {
         border-bottom: none;
       }
-      
+
     }
-    
+
     dd {
       width: 70%;
       border-bottom: solid 1px #dcdbdb;
@@ -308,7 +312,7 @@ COMPANY
   .footer-link {  /* インスタ、ツイッター、フェイスブックのリンク */
     display: flex;
     margin-bottom: 20px;
-  
+
     li {
       font-size: 0.75rem;
       color: $base-color;
@@ -383,7 +387,7 @@ SP
         margin-bottom: 10px;
       }
 
-      p { 
+      p {
         margin: 0 0 20px auto;
     }
   }
